@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For My Maya 💖</title>
+
+<style>
+body{
+    margin:0;
+    font-family:Arial;
+    text-align:center;
+    background:linear-gradient(135deg,#ff9a9e,#fecfef);
+    overflow-x:hidden;
+}
+/* SLIDESHOW */
+.slideshow{
+    display:flex;
+    justify-content:center;
+    margin-top:20px;
+}
+
+.slideshow img{
+    width:260px;
+    max-width:85%;
+    border-radius:15px;
+    box-shadow:0 8px 20px rgba(0,0,0,0.3);
+    animation:fade 1s ease-in-out;
+}
+
+@keyframes fade{
+    from{opacity:0.4;}
+    to{opacity:1;}
+}
+
+
+/* 💌 FIRST LETTER */
+.letter{
+    position:fixed;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    background:white;
+    padding:25px;
+    width:85%;
+    max-width:320px;
+    border-radius:15px;
+    z-index:10;
+}
+
+.letter h2{color:#ff4d6d;}
+
+.letter button{
+    background:#ff4d6d;
+    color:white;
+    border:none;
+    padding:12px 20px;
+    border-radius:25px;
+}
+
+/* 🐱 CAT */
+.center-photo img{
+    width:160px;
+    margin-top:20px;
+    animation:float 3s ease-in-out infinite;
+}
+
+@keyframes float{
+    50%{transform:translateY(-10px);}
+}
+
+/* 📸 POLAROIDS */
+.gallery{
+    position:relative;
+    height:420px;
+}
+
+.polaroid{
+    width:130px;
+    background:white;
+    padding:10px 10px 25px;
+    position:absolute;
+    box-shadow:0 5px 15px rgba(0,0,0,0.3);
+}
+
+.polaroid img{width:100%;}
+.caption{font-size:14px;}
+
+.p1{top:20px; left:10%; transform:rotate(-10deg);}
+.p2{top:40px; right:10%; transform:rotate(8deg);}
+.p3{top:220px; left:15%; transform:rotate(-90deg);}
+.p4{top:240px; right:15%; transform:rotate(-90deg);}
+
+/* BUTTONS */
+.btn{
+    padding:15px 25px;
+    font-size:18px;
+    border:none;
+    border-radius:40px;
+    margin:10px;
+    cursor:pointer;
+}
+
+#yes{background:#ff4d6d;color:white;}
+#no{background:white;color:#ff4d6d;}
+
+/* CENTER BUTTON WRAPPER */
+.button-wrap{
+    display:flex;
+    position:fixed;
+    top:50%;
+    left:35%;
+    justify-content:;
+    align-items:;
+    gap:15px;
+    margin:20px 0 20px 0;
+}
+
+
+/* 🌷 TULIPS */
+.garden{
+    position:fixed;
+    bottom:0;
+    width:100%;
+    height:120px;
+    pointer-events:none;
+}
+
+.tulip{
+    position:absolute;
+    bottom:-40px;
+    font-size:32px;
+    animation:grow 2s ease-out forwards,sway 3s infinite;
+}
+
+@keyframes grow{to{bottom:0;}}
+@keyframes sway{
+    50%{transform:rotate(6deg);}
+}
+/* FLOATING HEARTS */
+.heart{
+    position:fixed;
+    bottom:-20px;
+    font-size:20px;
+    animation:floatUp 4s linear forwards;
+    pointer-events:none;
+}
+
+@keyframes floatUp{
+    to{
+        transform:translateY(-110vh);
+        opacity:0;
+    }
+}
+/* 💌 ENVELOPE */
+.envelope-container{
+    position:fixed;
+    inset:0;
+    display:none;
+    justify-content:center;
+    align-items:center;
+    background:linear-gradient(135deg,#ff9a9e,#fecfef);
+    z-index:99;
+}
+
+.envelope{
+    position:relative;
+    width:220px;
+    height:150px;
+    background:#ff4d6d;
+}
+
+.flap{
+    position:absolute;
+    width:100%;
+    height:100%;
+    background:#ff758c;
+    clip-path:polygon(0 0,100% 0,50% 60%);
+    transform-origin:top;
+    transition:1s;
+}
+
+.letter-paper{
+    position:absolute;
+    width:90%;
+    background:white;
+    left:5%;
+    bottom:5px;
+    padding:10px;
+    transform:translateY(60px);
+    transition:1s;
+}
+
+.open .flap{transform:rotateX(180deg);}
+.open .letter-paper{transform:translateY(-40px);}
+</style>
+</head>
+
+<body>
+
+<!-- 🎵 MUSIC -->
+<audio id="music" loop>
+<source src="m2.mp3" type="audio/mpeg">
+</audio>
+
+<!-- 💌 INTRO LETTER -->
+<div class="letter" id="letter">
+<h2>💌 My Love</h2>
+<p>
+You make my life brighter ✨<br>
+Your smile is my favorite thing ❤️
+</p>
+<button onclick="openSite()">Open My Heart 💖</button>
+</div>
+
+<h1>Will you be my Valentine? 🌹</h1>
+
+<!-- 🐱 CAT -->
+<div class="center-photo">
+<img src="cat.jpg">
+</div>
+
+<!-- 📸 POLAROIDS -->
+<div class="gallery">
+<div class="polaroid p1">
+<img src="photo1.jpeg"><div class="caption">Our memory ❤️</div>
+</div>
+<div class="polaroid p2">
+<img src="photo2.jpeg"><div class="caption">Best day 💕</div>
+</div>
+<div class="polaroid p3">
+<img src="photo3.jpeg"><div class="caption">You & Me ✨</div>
+</div>
+<div class="polaroid p4">
+<img src="photo4.jpeg"><div class="caption">Forever 🥰</div>
+</div>
+</div>
+<div class="button-wrap">
+    <button id="yes" class="btn" onclick="sayYes()">YES 💘</button>
+    <button id="no" class="btn" onclick="moveNo()">NO 😜</button>
+</div>
+
+
+<!-- 🌷 TULIP GARDEN -->
+<div class="garden" id="garden"></div>
+
+<!-- 💌 ENVELOPE -->
+<div class="envelope-container" id="envelopeContainer">
+<div class="envelope">
+<div class="flap"></div>
+<div class="letter-paper">
+<h3>💖 For You</h3>
+<p>
+You are my happiness.<br>
+I promise to always be there.<br><br>
+❤️ Forever Yours ❤️
+</p>
+</div>
+</div>
+</div>
+<!-- 💖 SLIDESHOW PAGE -->
+<div id="lovePage" style="display:none;">
+
+    <h1 style="color:white;">You Said YES 😍💞</h1>
+
+    <div class="love-layout">
+
+        <!-- Slideshow -->
+        <div class="slideshow">
+            <img id="slide" src="slide1.jpg">
+        </div>
+
+        <!-- Secret Message -->
+        <div class="secret-box">
+            <h2>💌 A Secret For You</h2>
+            <p>
+                You are my favorite person,<br>
+                my happiness,<br>
+                and my forever ❤️<br><br>
+                I’m so lucky to have you 💞
+            </p>
+        </div>
+
+    </div>
+
+</div>
+
+<script>
+/* tulips */
+const garden=document.getElementById("garden");
+for(let i=0;i<12;i++){
+let t=document.createElement("div");
+t.className="tulip";
+t.innerHTML="🌷";
+t.style.left=(i*8)+"%";
+t.style.animationDelay=i*0.2+"s";
+garden.appendChild(t);
+}
+
+function openSite(){
+document.getElementById("letter").style.display="none";
+document.getElementById("music").play();
+}
+let noSize = 18; 
+function moveNo(){
+    const btn = document.getElementById("no");
+
+    // move position
+    btn.style.position = "absolute";
+    btn.style.left = Math.random()*80 + "%";
+    btn.style.top = Math.random()*80 + "%";
+
+    // shrink effect
+    if(noSize > 8){
+        noSize -= 2;
+        btn.style.fontSize = noSize + "px";
+        btn.style.padding = "10px 15px";
+    }
+}
+let slideIndex=0;
+
+const slides=[
+    "ps1.jpg",
+    "ps2.jpg",
+    "ps3.jpg",
+    "ps4.jpg"
+];
+function sayYes(){
+    document.querySelector(".gallery").style.display="none";
+    document.querySelector(".center-photo").style.display="none";
+    document.querySelector(".button-wrap").style.display="none";
+    document.getElementById("garden").style.display="none";
+
+    document.getElementById("lovePage").style.display="block";
+
+    startSlideshow();
+    startHearts();
+
+    // show secret message after slideshow ends
+    setTimeout(()=>{
+        document.getElementById("secretMsg").style.display="block";
+    },10000); // after 10 seconds
+}
+
+function startSlideshow(){
+    setInterval(()=>{
+        slideIndex=(slideIndex+1)%slides.length;
+        document.getElementById("slide").src=slides[slideIndex];
+    },2000);
+}
+function startSlideshow(){
+    setInterval(()=>{
+        slideIndex = (slideIndex+1) % slides.length;
+        document.getElementById("slide").src = slides[slideIndex];
+    },2000);
+}
+function startHearts(){
+    setInterval(()=>{
+        const h = document.createElement("div");
+        h.className = "heart";
+        h.innerHTML = "💖";
+        h.style.left = Math.random()*100 + "%";
+        h.style.fontSize = (Math.random()*20+15)+"px";
+        document.body.appendChild(h);
+
+        setTimeout(()=>h.remove(),4000);
+    },300);
+}
+
+
+</script>
+
+</body>
+</html>
+
